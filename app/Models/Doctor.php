@@ -4,21 +4,29 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Service extends Model
+class Doctor extends Model
 {
     use HasFactory;
-    // use SoftDeletes;
 
     protected $fillable = [
         'name',
-        'description',
+        'polyclinic_id',
+        'name',
+        'no_hp',
+        'group',
+        'email'
     ];
-    // protected $dates = ['deleted_at'];
+
+
 
     public function uploads()
     {
         return $this->morphOne(Upload::class, 'uploadable');
+    }
+
+    function polyclinic()
+    {
+        return $this->belongsTo(Polyclinic::class, 'polyclinic_id', 'id');
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\Doctor\DoctorController;
+use App\Http\Controllers\Admin\Polyclinics\PolyclinicController;
 use App\Http\Controllers\Admin\Profile\ProfileController;
 use App\Http\Controllers\Admin\Services\ServiceController;
 use Illuminate\Support\Facades\Auth;
@@ -44,5 +46,25 @@ Route::prefix('/area-admin')->group(function () {
         Route::get('/edit/{service}', [ServiceController::class, 'edit'])->name('service.edit');
         Route::put('/update/{service}', [ServiceController::class, 'update'])->name('service.update');
         Route::delete('/destroy/{service}', [ServiceController::class, 'destroy'])->name('service.destroy');
+    });
+
+    //Polyclinic Route
+    Route::prefix('/polyclinic')->group(function () {
+        Route::get('/', [PolyclinicController::class, 'index'])->name('polyclinic.index');
+        Route::get('/add', [PolyclinicController::class, 'add'])->name('polyclinic.add');
+        Route::post('/store', [PolyclinicController::class, 'store'])->name('polyclinic.store');
+        Route::get('/edit/{polyclinic}', [PolyclinicController::class, 'edit'])->name('polyclinic.edit');
+        Route::put('/update/{polyclinic}', [PolyclinicController::class, 'update'])->name('polyclinic.update');
+        Route::delete('/destroy/{polyclinic}', [PolyclinicController::class, 'destroy'])->name('polyclinic.destroy');
+    });
+
+    //Doctors Route
+    Route::prefix('/doctor')->group(function () {
+        Route::get('/', [DoctorController::class, 'index'])->name('doctor.index');
+        Route::get('/add', [DoctorController::class, 'add'])->name('doctor.add');
+        Route::post('/store', [DoctorController::class, 'store'])->name('doctor.store');
+        Route::get('/edit/{doctor}', [DoctorController::class, 'edit'])->name('doctor.edit');
+        Route::put('/update/{doctor}', [DoctorController::class, 'update'])->name('doctor.update');
+        Route::delete('/destroy/{doctor}', [DoctorController::class, 'destroy'])->name('doctor.destroy');
     });
 });

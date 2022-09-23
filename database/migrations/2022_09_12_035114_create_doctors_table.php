@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('doctors', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('polyclinic_id')->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->text('description');
+            $table->string('no_hp');
+            $table->enum('group', ['Umum', 'Gigi', 'Spesialis']);
+            $table->string('email')->nullable();
             $table->timestamps();
-            // $table->timestamp('delete_at')->nullable();
         });
     }
 
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('doctors');
     }
 };

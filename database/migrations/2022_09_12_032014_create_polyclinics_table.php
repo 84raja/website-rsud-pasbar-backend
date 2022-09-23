@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('polyclinics', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
+            $table->string('description');
+            $table->enum('status', ['active', 'inactive']);
             $table->timestamps();
-            // $table->timestamp('delete_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('polyclinics');
     }
 };

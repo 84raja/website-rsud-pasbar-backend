@@ -1,6 +1,5 @@
 @extends('layouts.main')
 
-
 @section('content')
 
 <div class="container-fluid py-4">
@@ -15,49 +14,65 @@
                     </div>
                     <div class="col-md-2 mt-3 mx-3">
                         <div>
-                            <a href="{{ route('service.add') }}" class="btn btn-sm btn-primary text-xsm">Tambah
-                                Layanan</a>
+                            <a href="{{ route('doctor.add') }}" class="btn btn-sm btn-primary text-xsm">Tambah {{
+                                $pageName
+                                }}</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="p-0">
-                        <table class="mx-4 table-bordered" id="table-service" id="table-service" width="95%">
+                        <table class="mx-4 table-bordered" id="table-doctors" width="95%">
                             <thead>
                                 <tr class="text-center" style="height: 100px">
                                     <td class="text-secondary text-uppercase">
                                         Nama {{ $pageName }}</td>
                                     <td class="text-secondary text-uppercase">
-                                        Deskripsi</td>
+                                        Dokter</td>
                                     <td class="text-secondary text-uppercase text-center ">
-                                        Profile {{ $pageName }}</td>
+                                        No HP</td>
+                                    <td class="text-secondary text-uppercase text-center ">
+                                        Poli / Instalasi</td>
+                                    <td class="text-secondary text-uppercase text-center ">
+                                        Email</td>
+                                    <td class="text-secondary text-uppercase text-center ">
+                                        Foto</td>
                                     <td class="text-secondary text-uppercase"> Action</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($services as $service)
+                                @forelse ($doctors as $doctor)
                                 <tr>
                                     <td class="text-center">
-                                        <h6 class="mb-0 text-sm">{{ $service->name }}</h6>
+                                        <h6 class="mb-0 text-sm">{{ $doctor->name }}</h6>
                                     </td>
-                                    <td width='50%' class="text-justify py-2">
-                                        {!! $service->description !!}
+                                    <td class="text-center">
+                                        {{ $doctor->group }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ $doctor->no_hp }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ $doctor->polyclinic->name }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ $doctor->email }}
                                     </td>
                                     <td class="align-middle text-center">
                                         <div>
-                                            @if ($service->uploads)
-                                            <img src="{{ asset('storage/'.$service->uploads->url) }}"
-                                                alt="{{ $service->name }}" width="150px" height="150px">
+                                            @if ($doctor->uploads)
+                                            <img src="{{ asset('storage/'.$doctor->uploads->url) }}"
+                                                alt="{{ $doctor->name }}" width="150px" height="150px">
                                             @else
-                                            <img src="" alt="{{ $service->name }}" width="150px" height="150px">
+                                            <img src="" alt="{{ $doctor->name }}" width="150px" height="150px">
                                             @endif
 
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{ route('service.edit',$service->id) }}"
+                                        <a href="{{ route('doctor.edit',$doctor->id) }}"
                                             class="btn btn-sm btn-secondary">Edit</a>
-                                        <form action="{{ route('service.destroy',$service->id) }}" method="POST">
+                                        <form action="{{ route('doctor.destroy',$doctor->id) }}" method="POST">
                                             @csrf @method('DELETE')
                                             <button class="btn btn-sm btn-danger"
                                                 onclick="return confirm('Anda yakin ingin menghapus data?')">Hapus</button>
@@ -79,16 +94,14 @@
 @endsection
 
 @push('js')
+
 <script src="{{asset('assets/js/core/jquery.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('/data-tables/jquery.datatables.min.js')}}"></script>
 <script src="{{asset('/data-tables/datatables.bootstrap4.min.js')}}"></script>
 
-
-
-
 <script type="text/javascript">
     jQuery(document).ready(function () {
-        jQuery('#table-service').DataTable({
+        jQuery('#table-doctors').DataTable({
             "scrollX": true,
             "scrollY": true,
             dom: "<'row col-mm-12 mx-4 mt-4 d-flex justify-content-between '<' col-md-6'l><'col-md-6  d-flex justify-content-end'f>><'row'<'col-sm-12'tr>><'row mx-4 my-4'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 d-flex justify-content-end'p>>"
