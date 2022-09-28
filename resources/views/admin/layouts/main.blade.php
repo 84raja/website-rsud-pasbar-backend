@@ -36,15 +36,15 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
-    @include('layouts.aside')
+    @include('admin.layouts.aside')
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-        @include('layouts.navbar')
+        @include('admin.layouts.navbar')
         <div class="container-fluid py-1">
             @yield('content')
             @include('sweetalert::alert')
 
         </div>
-        @include('layouts.footer')
+        @include('admin.layouts.footer')
     </main>
 
     <!--   Core JS Files   -->

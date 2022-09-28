@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 
 @section('content')
 <form action="{{ route('profile.update',1) }}" method="post" enctype="multipart/form-data">
