@@ -30,7 +30,7 @@
     const groupSelect = document.getElementById('group');
     var polyclinicSelect = document.getElementById('polyclinic_id');
 
-    groupSelect.addEventListener('click',setPoly);
+    groupSelect.addEventListener('change',setPoly);
 
     function setPoly(){
         if(groupSelect.value == "Dokter Umum"){

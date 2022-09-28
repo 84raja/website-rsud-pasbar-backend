@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Doctor\DoctorController;
 use App\Http\Controllers\Admin\Polyclinics\PolyclinicController;
 use App\Http\Controllers\Admin\Profile\ProfileController;
+use App\Http\Controllers\Admin\Schedule\ScheduleController;
 use App\Http\Controllers\Admin\Services\ServiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -66,5 +67,12 @@ Route::prefix('/area-admin')->group(function () {
         Route::get('/edit/{doctor}', [DoctorController::class, 'edit'])->name('doctor.edit');
         Route::put('/update/{doctor}', [DoctorController::class, 'update'])->name('doctor.update');
         Route::delete('/destroy/{doctor}', [DoctorController::class, 'destroy'])->name('doctor.destroy');
+    });
+
+    // schedule polyclinic
+    Route::prefix('/schedule')->group(function () {
+        Route::get('/', [ScheduleController::class, 'index'])->name('schedule.index');
+        Route::get('/add/{doctor}', [ScheduleController::class, 'add'])->name('schedule.add');
+        Route::post('/store/{doctor}', [ScheduleController::class, 'store'])->name('schedule.store');
     });
 });

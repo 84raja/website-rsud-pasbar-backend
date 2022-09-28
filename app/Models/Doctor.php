@@ -29,4 +29,9 @@ class Doctor extends Model
     {
         return $this->belongsTo(Polyclinic::class, 'polyclinic_id', 'id');
     }
+
+    function schedule()
+    {
+        return $this->hasOne(Schedule::class);
+    }
 }
