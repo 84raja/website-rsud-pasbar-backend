@@ -5,6 +5,10 @@ use App\Http\Controllers\Admin\Polyclinics\PolyclinicController;
 use App\Http\Controllers\Admin\Profile\ProfileController;
 use App\Http\Controllers\Admin\Schedule\ScheduleController;
 use App\Http\Controllers\Admin\Services\ServiceController;
+use App\Http\Controllers\Frontend\DoctorController as FrontendDoctorController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ProfileController as FrontendProfileController;
+use App\Http\Controllers\Frontend\ServiceController as FrontendServiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,13 +23,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//route group for area admin
 Route::prefix('/area-admin')->group(function () {
     Route::prefix('/users')->group(function () {
         Route::get('/', function () {
@@ -76,3 +81,9 @@ Route::prefix('/area-admin')->group(function () {
         Route::post('/store/{doctor}', [ScheduleController::class, 'store'])->name('schedule.store');
     });
 });
+
+//route for guest
+Route::get('/', [HomeController::class, 'index'])->name('fHome');
+Route::get('/profile', [FrontendProfileController::class, 'index'])->name('fProfile');
+Route::get('/service', [FrontendServiceController::class, 'index'])->name('fService');
+Route::get('/doctor', [FrontendDoctorController::class, 'index'])->name('fDoctor');

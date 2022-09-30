@@ -105,12 +105,8 @@
             </div>
 
 
-            <div class="nav-wrapper position-relative end-0">
-                <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
-                    <li class="nav-item">
-                        <button type="submit" class="btn btn-md mt-2 btn-info">Simpan</button>
-                    </li>
-                </ul>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-md mt-2 btn-info">Simpan</button>
             </div>
         </div>
 

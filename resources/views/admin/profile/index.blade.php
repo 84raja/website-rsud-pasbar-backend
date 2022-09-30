@@ -74,13 +74,8 @@
                     </div>
                 </div>
                 <div class="col-md-4 my-sm-auto ms-sm-auto me-sm-0 mx-auto mr-2">
-                    <div class="nav-wrapper position-relative end-0">
-                        <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
-                            <li class="nav-item">
-                                <button type="submit" class="btn btn-md mt-2 btn-info">Simpan</button>
-                            </li>
-
-                        </ul>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-md mt-2 btn-info">Simpan</button>
                     </div>
                 </div>
             </div>
@@ -133,6 +128,7 @@
 @endsection
 
 @push('js')
+
 <script>
     ClassicEditor
         .create( document.querySelector( '#textarea-editor-sejarah' ) )
