@@ -11,7 +11,7 @@
         </div>
         <hr class="horizontal dark mt-0">
         <div>
-            <ul class="collapse navbar-collapse navbar-nav">
+            <ul class="collapse navbar-collapse navbar-nav" style="height: 100%">
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('profile*')?'active':'' }}"
                         href="{{ route('profile.index') }}">
@@ -221,9 +221,8 @@
                         <span class="nav-link-text ms-1">Sign Up</span>
                     </a>
                 </li>
+
             </ul>
         </div>
-        {{--
-    </div> --}}
 
 </aside>

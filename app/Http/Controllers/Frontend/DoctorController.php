@@ -10,7 +10,7 @@ class DoctorController extends Controller
 {
     public function index()
     {
-        $doctors = Doctor::all();
+        $doctors = Doctor::orderBy('group', 'DESC')->get();
         return view('frontend.doctor.index', [
             'pageName' => 'Dokter',
             'doctors' => $doctors

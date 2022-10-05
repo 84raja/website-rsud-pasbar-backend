@@ -31,6 +31,8 @@
                         href="{{ route('fService') }}">Layanan</a></li>
                 <li><a class="nav-link scrollto {{ request()->routeIs('fDoctor*')?'active':'' }}"
                         href="{{ route('fDoctor') }}">Dokter</a></li>
+                <li><a class="nav-link scrollto {{ request()->routeIs('fSchedule*')?'active':'' }}"
+                        href="{{ route('fSchedule') }}">Jadwal Poliklinik</a></li>
                 <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="#">Drop Down 1</a></li>
@@ -49,12 +51,13 @@
                         <li><a href="#">Drop Down 4</a></li>
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                <li><a class="nav-link scrollto {{ request()->routeIs('fContact')?'active':'' }}"
+                        href="{{ route('fContact') }}">Contact</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
 
-        <a href="#appointment" class="appointment-btn scrollto">
+        <a href="https://wa.me/6281267325091" target="_blank" class="appointment-btn scrollto">
             <span class="d-none d-md-inline">Daftar</span> Online
         </a>
     </div>

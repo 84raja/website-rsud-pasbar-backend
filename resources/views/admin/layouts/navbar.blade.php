@@ -13,10 +13,15 @@
 
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item d-flex align-items-center">
-                    <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+                    <a href="{{ route('logout') }}" class="nav-link text-body font-weight-bold px-0" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
                         <i class="fa fa-user me-sm-1"></i>
-                        <span class="d-sm-inline d-none">Sign In</span>
+                        <span class="d-sm-inline d-none">Keluar</span>
                     </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+
                 </li>
                 <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">

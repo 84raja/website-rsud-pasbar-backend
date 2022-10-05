@@ -37,14 +37,12 @@
         <div class="row">
             <div class="col-xl-5 col-lg-6 icon-boxes d-flex flex-column align-items-stretch px-5">
                 <h3>VISI</h3>
-                <p class="text-justify">
-                    “Menjadikan Rumah Sakit Pilihan Utama Masyarakat Pasaman Barat Dan Sekitarnya.”
-                </p>
+                {!! $profile->visi !!}
             </div>
             <div
                 class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center px-5 text-justify">
                 <h3>MISI</h3>
-                <img src="{{ asset('/frontend/img/misi.png') }}" width="100%" height="100%">
+                {!! $profile->misi !!}
             </div>
         </div>
     </div>

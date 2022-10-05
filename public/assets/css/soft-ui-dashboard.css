@@ -23189,9 +23189,6 @@ hr.horizontal.gray-light {
   height: 4.875rem;
 }
 
-.sidenav-footer .card.card-background:after {
-  opacity: 0.65;
-}
 
 .g-sidenav-show .sidenav .nav-item .collapse {
   height: auto;

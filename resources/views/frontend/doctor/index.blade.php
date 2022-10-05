@@ -14,7 +14,7 @@
         </div>
         <div class="row">
             @forelse ($doctors as $doctor)
-            <div class="col-lg-6">
+            <div class="col-lg-6 my-2">
                 <div class="member d-flex align-items-start">
                     <div class="pic">
                         <img src="{{ asset('storage/'.$doctor->uploads->url) }}" class="img-fluid"
