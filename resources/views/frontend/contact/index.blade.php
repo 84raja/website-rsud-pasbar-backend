@@ -40,14 +40,18 @@
                         <h4>Call:</h4>
                         <p>+1 5589 55488 55s</p>
                     </div>
-
+                    <div class="phone">
+                        <i class="bi bi-phone"></i>
+                        <h4>WhatsApp:</h4>
+                        <p>081267325091</p>
+                    </div>
                 </div>
 
             </div>
 
             <div class="col-lg-8 mt-5 mt-lg-0">
 
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <form action="#" method="post" role="form" class="php-email-form">
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
